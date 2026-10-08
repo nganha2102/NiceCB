@@ -1,17 +1,19 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function CompanyMember() {
+    const {t} = useTranslation();
     const [count, setCount] = useState(0);
 
     return (
         <div className="space-y-4">
             <div>
-                <h1 className="mb-4 text-2xl font-bold">Company Member Page</h1>
-                <h1 className="mb-4 text-2xl font-bold">Company Member Page</h1>
-                <h1 className="mb-4 text-2xl font-bold">Company Member Page</h1>
-                <h1 className="mb-4 text-2xl font-bold">Company Member Page</h1>
-                <h1 className="mb-4 text-2xl font-bold">Company Member Page</h1>
-                <h1 className="mb-4 text-2xl font-bold">Company Member Page</h1>
+                <h1 className="mb-4 text-2xl font-bold">{t('login.title')}</h1>
+                <h1 className="mb-4 text-2xl font-bold">{t('login.title')}</h1>
+                <h1 className="mb-4 text-2xl font-bold">{t('login.title')}</h1>
+                <h1 className="mb-4 text-2xl font-bold">{t('login.title')}</h1>
+                <h1 className="mb-4 text-2xl font-bold">{t('login.title')}</h1>
+                <h1 className="mb-4 text-2xl font-bold">{t('login.title')}</h1>
                 <h1 className="mb-4 text-2xl font-bold">Company Member Page</h1>
                 <h1 className="mb-4 text-2xl font-bold">Company Member Page</h1>
                 <h1 className="mb-4 text-2xl font-bold">Company Member Page</h1>

@@ -20,6 +20,7 @@
         "antd": "^6.6.5",
         "clsx": "^2.1.1",
         "i18next": "^26.4.2",
+        "i18next-browser-languagedetector": "^8.2.1",
         "keepalive-for-react": "^6.0.0",
         "keepalive-for-react-router": "^6.0.0",
         "react": "^19.3.0",

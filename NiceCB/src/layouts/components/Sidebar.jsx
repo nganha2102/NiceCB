@@ -176,22 +176,33 @@ export default function Sidebar({ children, onCloseTab }) {
                         }
                     />
                 </nav>
-
-                <Tabs
-                    type="editable-card"
-                    hideAdd
-                    activeKey={
-                        openTabs.some((tab) => tab.key === activeTabKey)
-                            ? activeTabKey
-                            : undefined
-                    }
-                    items={openTabs}
-                    onChange={navigate}
-                    onEdit={(targetKey, action) => {
-                        if (action === 'remove') void closeTab(targetKey);
-                    }}
-                    className="mb-0! border-b border-gray-200 bg-gray-50 px-2 pt-1"
-                />
+                <div className="flex items-stretch w-full h-full">
+                    <div className="min-w-max! flex items-center w-56 px-4 bg-primary-500">
+                        {
+                            topLevelItems.find(
+                                (item) => item.key === activeSection,
+                            )?.label
+                        }
+                    </div>
+                    <div className="flex-1">
+                        <Tabs
+                            type="editable-card"
+                            hideAdd
+                            activeKey={
+                                openTabs.some((tab) => tab.key === activeTabKey)
+                                    ? activeTabKey
+                                    : undefined
+                            }
+                            items={openTabs}
+                            onChange={navigate}
+                            onEdit={(targetKey, action) => {
+                                if (action === 'remove')
+                                    void closeTab(targetKey);
+                            }}
+                            className="mb-0! border-b border-gray-200 bg-gray-50 px-2 pt-1"
+                        />
+                    </div>
+                </div>
             </div>
 
             <div className="flex items-start">
