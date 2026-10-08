@@ -1,0 +1,122 @@
+@import 'tailwindcss';
+
+@theme {
+    --color-primary: #0743d8;
+    --color-primary-900: #001d66;
+    --color-primary-800: #002c8c;
+    --color-primary-700: #003eb3;
+    --color-primary-600: #0958d9;
+    --color-primary-500: #1677ff;
+    --color-primary-400: #4096ff;
+    --color-primary-300: #69b1ff;
+    --color-primary-200: #91caff;
+    --color-primary-100: #bae0ff;
+    --color-primary-50: #e6f4ff;
+    /* secondary used for text */
+    --color-secondary: #0c1119;
+    --color-secondary-900: #0c1119;
+    --color-secondary-800: #1c2431;
+    --color-secondary-700: #2d384a;
+    --color-secondary-600: #3f4e66;
+    --color-secondary-500: #536583;
+    --color-secondary-400: #687fa3;
+    --color-secondary-300: #819ac3;
+    --color-secondary-200: #a8b8d5;
+    --color-secondary-100: #d3dae9;
+    --color-secondary-50: #eef1f6;
+    /* secondary bg */
+    --color-bg-light: #f8fafc;
+    --color-border: #D2D5DB;
+    /* others */
+    --color-text-success: #01c26b;
+    --color-bg-success: #ccffe8;
+    --color-text-pending: #F79108;
+    --color-bg-pending: #FEF4E6;
+    --color-text-error: #E91637;
+    --color-bg-error: #FDE8EB;
+    --color-text-success: #01c26b;
+    --color-bg-success: #ccffe8;
+}
+
+:root {
+    --text: #6b6375;
+    --text-h: #08060d;
+    --bg: #fff;
+    --border: #e5e4e7;
+    --code-bg: #f4f3ec;
+    --accent: #aa3bff;
+    --accent-bg: rgba(170, 59, 255, 0.1);
+    --accent-border: rgba(170, 59, 255, 0.5);
+    --social-bg: rgba(244, 243, 236, 0.5);
+    --shadow:
+        rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+    --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+    --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+    --mono: ui-monospace, Consolas, monospace;
+
+    font: 18px/145% var(--sans);
+    letter-spacing: 0.18px;
+    color-scheme: light dark;
+    color: var(--text);
+    background: var(--bg);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    @media (max-width: 1024px) {
+        font-size: 16px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text: #9ca3af;
+        --text-h: #f3f4f6;
+        --bg: #16171d;
+        --border: #2e303a;
+        --code-bg: #1f2028;
+        --accent: #c084fc;
+        --accent-bg: rgba(192, 132, 252, 0.15);
+        --accent-border: rgba(192, 132, 252, 0.5);
+        --social-bg: rgba(47, 48, 58, 0.5);
+        --shadow:
+            rgba(0, 0, 0, 0.4) 0 10px 15px -3px,
+            rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+    }
+}
+
+body {
+    margin: 0;
+}
+
+#root {
+    box-sizing: border-box;
+}
+
+h1,
+h2 {
+    font-family: var(--heading);
+    font-weight: 500;
+    color: var(--text-h);
+}
+
+h1 {
+    font-size: 56px;
+    letter-spacing: -1.68px;
+    @media (max-width: 1024px) {
+        font-size: 36px;
+    }
+}
+h2 {
+    font-size: 24px;
+    line-height: 118%;
+    letter-spacing: -0.24px;
+    @media (max-width: 1024px) {
+        font-size: 20px;
+    }
+}
+p {
+    margin: 0;
+}
