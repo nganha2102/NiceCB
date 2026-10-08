@@ -1,5 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import DashboardLayout from '../layouts';
+import ErrorBoundary from '../pages/ErrorBoundary';
+import NotFound from '../pages/NotFound';
 
 const page = (loader) => async () => ({ Component: (await loader()).default });
 
@@ -7,9 +9,10 @@ export const router = createBrowserRouter([
     { path: '/login', lazy: page(() => import('../pages/Login')) },
     {
         path: '/',
+        errorElement: <ErrorBoundary />,
         element: (
             // <ProtectedRoute>
-            <DashboardLayout />
+                <DashboardLayout />
             // </ProtectedRoute>
         ),
         children: [
@@ -107,5 +110,5 @@ export const router = createBrowserRouter([
             },
         ],
     },
-    { path: '*', element: <Navigate to="/home" replace /> },
+    { path: '*', element: <NotFound /> },
 ]);
