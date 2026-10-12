@@ -1,13 +1,17 @@
 import {
     BankOutlined,
+    MenuFoldOutlined,
+    MenuUnfoldOutlined,
     FileTextOutlined,
     KeyOutlined,
     SettingOutlined,
     TeamOutlined,
 } from '@ant-design/icons';
-import { Menu, Tabs } from 'antd';
+import { Button, Menu, Tabs } from 'antd';
 import { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { toggleSidebar } from '@/store/ui.slice';
 
 const topLevelItems = [
     {
@@ -111,6 +115,8 @@ const defaultSectionPages = Object.fromEntries(
 export default function Sidebar({ children, onCloseTab }) {
     const { pathname, search } = useLocation();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const sidebarCollapsed = useSelector((state) => state.ui.collapsed);
     const lastActivePageBySection = useRef({ ...defaultSectionPages });
     const [tabState, setTabState] = useState({ locationKey: null, tabs: [] });
     const activeTabKey = `${pathname}${search}`;
@@ -162,7 +168,7 @@ export default function Sidebar({ children, onCloseTab }) {
             <div className="sticky top-14 z-40 bg-white">
                 <nav
                     aria-label="Main navigation"
-                    className="overflow-x-auto border-b border-gray-200 bg-white"
+                    className="hidden overflow-x-auto border-b border-gray-200 bg-white md:block"
                 >
                     <Menu
                         mode="horizontal"
@@ -177,13 +183,32 @@ export default function Sidebar({ children, onCloseTab }) {
                     />
                 </nav>
                 <div className="flex items-stretch w-full h-full">
-                    <div className="min-w-max! flex items-center w-56 px-4 bg-primary-500">
-                        {
-                            topLevelItems.find(
-                                (item) => item.key === activeSection,
-                            )?.label
-                        }
-                    </div>
+                        <div className="flex shrink-0 items-center gap-2 bg-primary-500 px-2 md:w-56 md:px-4">
+                            <Button
+                                type="text"
+                                aria-label={
+                                    sidebarCollapsed
+                                        ? 'Show navigation'
+                                        : 'Hide navigation'
+                                }
+                                aria-expanded={!sidebarCollapsed}
+                                aria-controls="section-navigation"
+                                icon={
+                                    sidebarCollapsed ? (
+                                        <MenuUnfoldOutlined />
+                                    ) : (
+                                        <MenuFoldOutlined />
+                                    )
+                                }
+                                onClick={() => dispatch(toggleSidebar())}
+                                className="text-white hover:text-white"
+                            />
+                            {
+                                topLevelItems.find(
+                                    (item) => item.key === activeSection,
+                                )?.label
+                            }
+                        </div>
                     <div className="flex-1">
                         <Tabs
                             type="editable-card"
@@ -205,18 +230,37 @@ export default function Sidebar({ children, onCloseTab }) {
                 </div>
             </div>
 
-            <div className="flex items-start">
-                <aside
-                    aria-label={`${activeSection?.slice(1) ?? 'Section'} navigation`}
-                    className="sticky top-35.5 h-[calc(100dvh-8.875rem)] w-56 shrink-0 self-start overflow-y-auto border-r border-gray-200 bg-white"
-                >
-                    <Menu
-                        mode="inline"
-                        selectedKeys={[pathname]}
-                        items={activeItems}
-                        onClick={({ key }) => navigate(key)}
-                    />
-                </aside>
+            <div className="relative flex items-start">
+                {!sidebarCollapsed && (
+                    <aside
+                        id="section-navigation"
+                        aria-label={`${activeSection?.slice(1) ?? 'Section'} navigation`}
+                        className="absolute inset-x-0 top-0 z-40 max-h-[calc(100dvh-8rem)] overflow-y-auto border-b border-gray-200 bg-white shadow-md md:sticky md:inset-auto md:top-35.5 md:h-[calc(100dvh-8.875rem)] md:max-h-none md:w-56 md:shrink-0 md:self-start md:border-b-0 md:border-r md:shadow-none"
+                    >
+                        <Menu
+                            mode="inline"
+                            className="md:hidden"
+                            selectedKeys={activeSection ? [activeSection] : []}
+                            items={topLevelItems.map((item) => ({
+                                ...item,
+                                style: undefined,
+                            }))}
+                            onClick={({ key }) =>
+                                navigate(
+                                    lastActivePageBySection.current[key] ?? key,
+                                )
+                            }
+                        />
+                        {activeSection && (
+                            <Menu
+                                mode="inline"
+                                selectedKeys={[pathname]}
+                                items={activeItems}
+                                onClick={({ key }) => navigate(key)}
+                            />
+                        )}
+                    </aside>
+                )}
 
                 <div className="min-w-0 flex-1">{children}</div>
             </div>

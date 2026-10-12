@@ -2,7 +2,7 @@ import { LogoutOutlined, TeamOutlined } from '@ant-design/icons';
 import { Avatar, Button, Space } from 'antd';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { logout } from '../../store/auth.slice';
+import { logout } from '@/store/auth.slice';
 
 export default function Header() {
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export default function Header() {
     };
 
     return (
-        <header className="sticky top-0 z-50 flex h-14 shrink-0 items-center justify-between border-b border-primary-800 bg-primary-700 px-4 text-white shadow-sm sm:px-6">
+        <header className="sticky top-0 z-50 flex h-16 shrink-0 items-center justify-between border-b border-primary-800 bg-primary-700 px-4 text-white shadow-sm sm:px-6">
             <div className="flex min-w-0 items-center gap-3">
                 <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-white/15">
                     <TeamOutlined className="text-lg" />

@@ -1,4 +1,5 @@
-@import "tailwindcss" important;
+@import 'tailwindcss' important;
+@import './styles/typograph.css';
 
 @theme {
     --color-primary: #0743d8;
@@ -26,14 +27,14 @@
     --color-secondary-50: #eef1f6;
     /* secondary bg */
     --color-bg-light: #f8fafc;
-    --color-border: #D2D5DB;
+    --color-border: #d2d5db;
     /* others */
     --color-text-success: #01c26b;
     --color-bg-success: #ccffe8;
-    --color-text-pending: #F79108;
-    --color-bg-pending: #FEF4E6;
-    --color-text-error: #E91637;
-    --color-bg-error: #FDE8EB;
+    --color-text-pending: #f79108;
+    --color-bg-pending: #fef4e6;
+    --color-text-error: #e91637;
+    --color-bg-error: #fde8eb;
     --color-text-success: #01c26b;
     --color-bg-success: #ccffe8;
 }
@@ -54,8 +55,7 @@
     --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
     --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
     --mono: ui-monospace, Consolas, monospace;
-
-    font: 18px/145% var(--sans);
+    font: 14px;
     letter-spacing: 0.18px;
     color-scheme: light dark;
     color: var(--text);
@@ -64,26 +64,95 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    --h1-size: 24px;
+    --h2-size: 22px;
+    --h3-size: 20px;
+    --h4-size: 18px;
+    --h5-size: 16px;
+    --h6-size: 14px;
+    --display-lg-size: 40px;
+    --display-md-size: 32px;
+    --display-sm-size: 24px;
+    --display-lg-line-height: 48px;
+    --display-lg-spacing: -2px;
+    --display-md-line-height: 40px;
+    --display-md-spacing: -2px;
+    --display-sm-line-height: 32px;
+    --display-sm-spacing: -1px;
+    /* KPI XL */
+    --kpi-xl-size: 40px;
+    --kpi-xl-line-height: 48px;
+    --kpi-xl-spacing: -2px;
+    --kpi-xl-weight: 700;
 
-    @media (max-width: 1024px) {
-        font-size: 16px;
+    /* KPI LG */
+    --kpi-lg-size: 32px;
+    --kpi-lg-line-height: 40px;
+    --kpi-lg-spacing: -2px;
+    --kpi-lg-weight: 700;
+
+    /* KPI MD */
+    --kpi-md-size: 28px;
+    --kpi-md-line-height: 36px;
+    --kpi-md-spacing: -1px;
+    --kpi-md-weight: 700;
+
+    /* KPI SM */
+    --kpi-sm-size: 24px;
+    --kpi-sm-line-height: 32px;
+    --kpi-sm-spacing: -1px;
+    --kpi-sm-weight: 600;
+}
+@media (max-width: 1023px) {
+    :root {
+        --h1-size: 22px;
+        --h2-size: 20px;
+        --h3-size: 18px;
+        --h4-size: 16px;
+        --h5-size: 14px;
+        --display-lg-size: 32px;
+        --display-md-size: 24px;
+        --display-sm-size: 24px;
+        --display-lg-line-height: 40px;
+        --display-lg-spacing: -2px;
+        --display-md-line-height: 32px;
+        --display-md-spacing: -1px;
+        /* XL → LG */
+        --kpi-xl-size: 32px;
+        --kpi-xl-line-height: 40px;
+
+        /* LG → MD */
+        --kpi-lg-size: 28px;
+        --kpi-lg-line-height: 36px;
+        --kpi-lg-spacing: -1px;
+
+        /* MD → SM */
+        --kpi-md-size: 24px;
+        --kpi-md-line-height: 32px;
+        --kpi-md-weight: 600;
     }
 }
 
-@media (prefers-color-scheme: dark) {
+@media (max-width: 767px) {
     :root {
-        --text: #9ca3af;
-        --text-h: #f3f4f6;
-        --bg: #16171d;
-        --border: #2e303a;
-        --code-bg: #1f2028;
-        --accent: #c084fc;
-        --accent-bg: rgba(192, 132, 252, 0.15);
-        --accent-border: rgba(192, 132, 252, 0.5);
-        --social-bg: rgba(47, 48, 58, 0.5);
-        --shadow:
-            rgba(0, 0, 0, 0.4) 0 10px 15px -3px,
-            rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+        --h1-size: 20px;
+        --h2-size: 18px;
+        --h3-size: 16px;
+        --h4-size: 14px;
+        --h5-size: 14px;
+        --display-lg-size: 24px;
+        --display-md-size: 24px;
+        --display-sm-size: 24px;
+        --display-lg-line-height: 32px;
+        --display-lg-spacing: -1px;
+        --kpi-xl-size: 28px;
+        --kpi-xl-line-height: 36px;
+        --kpi-xl-spacing: -1px;
+
+        /* LG → SM */
+        --kpi-lg-size: 24px;
+        --kpi-lg-line-height: 32px;
+        --kpi-lg-weight: 600;
     }
 }
 
@@ -95,28 +164,93 @@ body {
     box-sizing: border-box;
 }
 
-h1,
-h2 {
-    font-family: var(--heading);
-    font-weight: 500;
-    color: var(--text-h);
+h1 {
+    font-size: var(--h1-size);
+    line-height: 32px;
+    letter-spacing: -1px;
+    font-weight: 600;
 }
 
-h1 {
-    font-size: 56px;
-    letter-spacing: -1.68px;
-    @media (max-width: 1024px) {
-        font-size: 36px;
-    }
-}
 h2 {
-    font-size: 24px;
-    line-height: 118%;
-    letter-spacing: -0.24px;
-    @media (max-width: 1024px) {
-        font-size: 20px;
-    }
+    font-size: var(--h2-size);
+    line-height: 30px;
+    letter-spacing: -1px;
+    font-weight: 600;
 }
-p {
-    margin: 0;
+
+h3 {
+    font-size: var(--h3-size);
+    line-height: 28px;
+    letter-spacing: -1px;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: var(--h4-size);
+    line-height: 26px;
+    letter-spacing: 0;
+    font-weight: 600;
+}
+
+h5 {
+    font-size: var(--h5-size);
+    line-height: 24px;
+    letter-spacing: 0;
+    font-weight: 600;
+}
+
+h6 {
+    font-size: var(--h6-size);
+    line-height: 22px;
+    letter-spacing: 0;
+    font-weight: 600;
+}
+
+.display-lg {
+    font-size: var(--display-lg-size);
+    line-height: var(--display-lg-line-height);
+    letter-spacing: var(--display-lg-spacing);
+    font-weight: 700;
+}
+
+.display-md {
+    font-size: var(--display-md-size);
+    line-height: var(--display-md-line-height);
+    letter-spacing: var(--display-md-spacing);
+    font-weight: 700;
+}
+
+.display-sm {
+    font-size: var(--display-sm-size);
+    line-height: var(--display-sm-line-height);
+    letter-spacing: var(--display-sm-spacing);
+    font-weight: 700;
+}
+
+.kpi-xl {
+    font-size: var(--kpi-xl-size);
+    line-height: var(--kpi-xl-line-height);
+    letter-spacing: var(--kpi-xl-spacing);
+    font-weight: var(--kpi-xl-weight);
+}
+
+.kpi-lg {
+    font-size: var(--kpi-lg-size);
+    line-height: var(--kpi-lg-line-height);
+    letter-spacing: var(--kpi-lg-spacing);
+    font-weight: var(--kpi-lg-weight);
+}
+
+.kpi-md {
+    font-size: var(--kpi-md-size);
+    line-height: var(--kpi-md-line-height);
+    letter-spacing: var(--kpi-md-spacing);
+    font-weight: var(--kpi-md-weight);
+}
+
+.kpi-sm {
+    font-size: var(--kpi-sm-size);
+    line-height: var(--kpi-sm-line-height);
+    letter-spacing: var(--kpi-sm-spacing);
+    font-weight: var(--kpi-sm-weight);
 }

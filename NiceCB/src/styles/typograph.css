@@ -1,0 +1,63 @@
+@theme {
+    --text-h1: 24px;
+    --text-h1--line-height: 32px;
+    --text-h1--letter-spacing: -1px;
+    --text-h1--font-weight: 600;
+
+    --text-h2: 22px;
+    --text-h2--line-height: 30px;
+    --text-h2--letter-spacing: -1px;
+    --text-h2--font-weight: 600;
+
+    --text-h3: 20px;
+    --text-h3--line-height: 28px;
+    --text-h3--letter-spacing: -1px;
+    --text-h3--font-weight: 600;
+
+    --text-h4: 18px;
+    --text-h4--line-height: 26px;
+    --text-h4--letter-spacing: 0px;
+    --text-h4--font-weight: 600;
+
+    --text-h5: 16px;
+    --text-h5--line-height: 24px;
+    --text-h5--letter-spacing: 0px;
+    --text-h5--font-weight: 600;
+
+    --text-h6: 14px;
+    --text-h6--line-height: 22px;
+    --text-h6--letter-spacing: 0px;
+    --text-h6--font-weight: 600;
+
+    --text-default-line-height: 24px;
+    --text-body-lg: 16px;
+    --text-body-md: 14px;
+    --text-body-sm: 13px;
+    --text-body-xs: 12px;
+}
+
+@layer components {
+    .heading-h1 {
+        @apply text-h3 md:text-h2 lg:text-h1;
+    }
+
+    .heading-h2 {
+        @apply text-h4 md:text-h3 lg:text-h2;
+    }
+
+    .heading-h3 {
+        @apply text-h5 md:text-h4 lg:text-h3;
+    }
+
+    .heading-h4 {
+        @apply text-h6 md:text-h5 lg:text-h4;
+    }
+
+    .heading-h5 {
+        @apply text-h6 lg:text-h5;
+    }
+
+    .heading-h6 {
+        @apply text-h6;
+    }
+}

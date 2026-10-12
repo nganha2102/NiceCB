@@ -1,7 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-import DashboardLayout from '../layouts';
-import ErrorBoundary from '../pages/ErrorBoundary';
-import NotFound from '../pages/NotFound';
+import ErrorBoundary from '@/pages/ErrorBoundary';
+import NotFound from '@/pages/NotFound';
+import DashboardLayout from '@/layouts';
 
 const page = (loader) => async () => ({ Component: (await loader()).default });
 
@@ -12,7 +12,9 @@ export const router = createBrowserRouter([
         errorElement: <ErrorBoundary />,
         element: (
             // <ProtectedRoute>
+                // <DashboardLayout />
                 <DashboardLayout />
+
             // </ProtectedRoute>
         ),
         children: [

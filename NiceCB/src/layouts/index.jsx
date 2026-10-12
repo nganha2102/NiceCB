@@ -1,7 +1,7 @@
 import KeepAliveRouteOutlet from 'keepalive-for-react-router';
 import { useKeepAliveRef } from 'keepalive-for-react';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
+import Header from '@/layouts/components/Header';
+import Sidebar from '@/layouts/components/Sidebar';
 import './styles.css';
 
 export default function DashboardLayout() {
