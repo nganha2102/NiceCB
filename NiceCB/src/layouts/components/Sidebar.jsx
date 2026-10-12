@@ -183,32 +183,35 @@ export default function Sidebar({ children, onCloseTab }) {
                     />
                 </nav>
                 <div className="flex items-stretch w-full h-full">
-                        <div className="flex shrink-0 items-center gap-2 bg-primary-500 px-2 md:w-56 md:px-4">
-                            <Button
-                                type="text"
-                                aria-label={
-                                    sidebarCollapsed
-                                        ? 'Show navigation'
-                                        : 'Hide navigation'
-                                }
-                                aria-expanded={!sidebarCollapsed}
-                                aria-controls="section-navigation"
-                                icon={
-                                    sidebarCollapsed ? (
-                                        <MenuUnfoldOutlined />
-                                    ) : (
-                                        <MenuFoldOutlined />
-                                    )
-                                }
-                                onClick={() => dispatch(toggleSidebar())}
-                                className="text-white hover:text-white"
-                            />
-                            {
-                                topLevelItems.find(
-                                    (item) => item.key === activeSection,
-                                )?.label
+                    <div
+                        className={`flex shrink-0 items-center gap-2 bg-primary-500 px-2 md:px-4 ${
+                            sidebarCollapsed ? '' : 'md:w-56'
+                        }`}
+                    >
+                        <Button
+                            type="text"
+                            aria-label={
+                                sidebarCollapsed
+                                    ? 'Show navigation'
+                                    : 'Hide navigation'
                             }
-                        </div>
+                            aria-expanded={!sidebarCollapsed}
+                            aria-controls="section-navigation"
+                            icon={
+                                sidebarCollapsed ? (
+                                    <MenuUnfoldOutlined />
+                                ) : (
+                                    <MenuFoldOutlined />
+                                )
+                            }
+                            onClick={() => dispatch(toggleSidebar())}
+                            className="text-white hover:text-white"
+                        />
+                        {!sidebarCollapsed &&
+                            topLevelItems.find(
+                                (item) => item.key === activeSection,
+                            )?.label}
+                    </div>
                     <div className="flex-1">
                         <Tabs
                             type="editable-card"
