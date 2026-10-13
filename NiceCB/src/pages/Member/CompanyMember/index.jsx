@@ -14,6 +14,15 @@ export default function CompanyMember() {
                 <h1 className="mb-4 text-2xl font-bold">{t('login.title')}</h1>
                 <h1 className="mb-4 text-2xl font-bold">{t('login.title')}</h1>
                 <h1 className="mb-4 text-2xl font-bold">{t('login.title')}</h1>
+                <h1 className="mb-4 text-2xl font-bold">{t('login.title')}</h1>
+                <h1 className="mb-4 text-2xl font-bold">{t('login.title')}</h1>
+                <h1 className="mb-4 text-2xl font-bold">{t('login.title')}</h1>
+                <h1 className="mb-4 text-2xl font-bold">{t('login.title')}</h1>
+                <h1 className="mb-4 text-2xl font-bold">{t('login.title')}</h1>
+                <h1 className="mb-4 text-2xl font-bold">{t('login.title')}</h1>
+                <h1 className="mb-4 text-2xl font-bold">{t('login.title')}</h1>
+                <h1 className="mb-4 text-2xl font-bold">{t('login.title')}</h1>
+                <h1 className="mb-4 text-2xl font-bold">{t('login.title')}</h1>
                 <h1 className="mb-4 text-2xl font-bold">Company Member Page</h1>
                 <h1 className="mb-4 text-2xl font-bold">Company Member Page</h1>
                 <h1 className="mb-4 text-2xl font-bold">Company Member Page</h1>

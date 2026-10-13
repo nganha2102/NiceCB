@@ -165,7 +165,7 @@ export default function Sidebar({ children, onCloseTab }) {
 
     return (
         <div className="flex flex-col">
-            <div className="sticky top-14 z-40 bg-white">
+            <div className="sticky top-16 z-40 bg-white">
                 <nav
                     aria-label="Main navigation"
                     className="hidden overflow-x-auto border-b border-gray-200 bg-white md:block"
@@ -238,7 +238,7 @@ export default function Sidebar({ children, onCloseTab }) {
                     <aside
                         id="section-navigation"
                         aria-label={`${activeSection?.slice(1) ?? 'Section'} navigation`}
-                        className="absolute inset-x-0 top-0 z-40 max-h-[calc(100dvh-8rem)] overflow-y-auto border-b border-gray-200 bg-white shadow-md md:sticky md:inset-auto md:top-35.5 md:h-[calc(100dvh-8.875rem)] md:max-h-none md:w-56 md:shrink-0 md:self-start md:border-b-0 md:border-r md:shadow-none"
+                        className="absolute inset-x-0 max-h-[calc(100dvh-8rem)] overflow-y-auto border-b border-gray-200 bg-white shadow-md md:fixed md:inset-auto md:left-0 md:top-40 md:h-[calc(100dvh-8.875rem)] md:max-h-none md:w-56 md:border-b-0 md:border-r md:shadow-none"
                     >
                         <Menu
                             mode="inline"
@@ -265,7 +265,13 @@ export default function Sidebar({ children, onCloseTab }) {
                     </aside>
                 )}
 
-                <div className="min-w-0 flex-1">{children}</div>
+                <div
+                    className={`min-w-0 flex-1 ${
+                        sidebarCollapsed ? '' : 'md:ml-56'
+                    }`}
+                >
+                    {children}
+                </div>
             </div>
         </div>
     );
